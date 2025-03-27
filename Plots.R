@@ -4,9 +4,9 @@ rm(list = ls())
 cat("\14")
 
 ####################################################################################################
-RR = 141  #地区个数
-NN = 65   #部门种类数（产品）
-UU = 1    #要素种类数
+RR = 141  #地区个数 --> Number of regions
+NN = 65   #部门种类数（产品）--> Number of categories by department (products)
+UU = 1    #要素种类数 --> Number of element types
 TT = 52
 
 
@@ -45,7 +45,7 @@ rm(Name)
 ColN = rbind(RowN,ColN)
 
 
-#稳态（Benchmark）:加载稳态数据
+#稳态（Benchmark）:加载稳态数据 --> Benchmark: Load steady-state data
 load("Data/GTAP10_2014.RData")
 MRIOT = MRIOT/52
 
@@ -68,7 +68,7 @@ E_CZ = IOZ_C%*%diag(1/IOX_0)
 E_VA = IOV_0%*%diag(1/IOX_0)
 
 
-#单个情景地图
+#单个情景地图 --> single scene map
 Scenario = "CN80-2"
 ###################################################################################
 IOX_TT = as.matrix(fread(paste("Result/IOX_",Scenario,".csv",sep = "")))
@@ -283,7 +283,7 @@ for(Scenario in ScenarioSet)
 
 
 
-#单个情景曲线
+#单个情景曲线 --> single scenario curve
 Scenario = "NT60-4"
 #################################################################################
 
@@ -336,7 +336,7 @@ p1 = ggplot(temp,aes(x = V1,y = V2)) +
 p1    
 
 
-#多个情景曲线
+#多个情景曲线 --> multiple scenario curves
 Scenario = c("CN80-2","CN60-4","CN40-6")
 #################################################################################
 X_Sum = diag(RR)
@@ -409,7 +409,7 @@ p1
 dev.off()
 
 
-#情景集合曲线
+#情景集合曲线 --> scenario set curve
 #################################################################################
 ScenarioSetCN = c("CN20-2","CN40-2","CN60-2","CN80-2",
                   "CN20-4","CN40-4","CN60-4","CN80-4",
@@ -505,7 +505,7 @@ p1
 dev.off()
 
 
-#单个情景单个部门曲线
+#单个情景单个部门曲线 --> Single scenario single sector curve
 Scenario = "GB40-6"
 #################################################################################
 
@@ -552,7 +552,7 @@ p1 = ggplot(temp,aes(x = V1,y = V2)) +
 p1
 
 
-#损失统计
+#损失统计 --> Loss statistics
 #####################################################################
 ScenarioSetCN = c("CN20-2","CN40-2","CN60-2","CN80-2",
                   "CN20-4","CN40-4","CN60-4","CN80-4",
@@ -615,7 +615,7 @@ write.csv(VA_Loss,"Figure/VA_Loss_GB.csv",row.names = F)
 
 
 
-#部门损失统计
+#部门损失统计 --> Department loss statistics
 #####################################################################
 ScenarioSetCN = c("CN20-2","CN40-2","CN60-2","CN80-2",
                   "CN20-4","CN40-4","CN60-4","CN80-4",
@@ -671,7 +671,7 @@ write.csv(VA_Loss_Sector,"Figure/VA_Loss_Sector.csv",row.names = F)
 
 
 
-#部门损失统计
+#部门损失统计 --> Department loss statistics
 #####################################################################
 ScenarioSet = c("CN80-2","NT60-4","GB40-6")
 
@@ -707,7 +707,7 @@ write.csv(meanp,"Figure/meanp.csv",row.names = F)
 
 
 
-#上下游
+#上下游 --> Upstream and downstream
 Scenario = "GB40-6_"
 RID = 64
 SID = 43
@@ -817,7 +817,7 @@ write.csv(temp,"Figure/Fig2_Japan_Motor_Down_CN80-2.csv",row.names = F)
 
 
 
-#热图
+#热图 --> heat map
 
 rst = rstU
 
@@ -856,7 +856,7 @@ p1
 dev.off()
 
 
-#复杂热图
+#复杂热图 --> Complex heat map
 load("Figure/LTF.RData")
 Scenario = "GB40-6"
 #################################################################################
@@ -895,7 +895,7 @@ mypaste = function(a)
     return(paste(a[1],a[2],sep = "."))
 }
 
-#上下游
+#上下游 --> Upstream and downstream
 Scenario = "GB40-6"
 
 rstU = RowN
