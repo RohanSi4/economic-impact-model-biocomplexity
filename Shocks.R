@@ -11,7 +11,9 @@ ScenarioSet = c("CN20-2","CN40-2","CN60-2","CN80-2",
 
 for(Scenario in ScenarioSet)
 {
-    rm(list = setdiff(ls(),c("Scenario","ScenarioSet")))
+    rm(list = setdiff(ls(), c("Scenario", "ScenarioSet")))
+    #rm(list = setdiff(ls(), c("Scenario", "ScenarioSet", "IOF_0")))
+    #IOF_0 <- readxl::read_excel("MRIOTtest.xlsx")
     
     RR = 141  #Region
     NN = 65   #Sector
